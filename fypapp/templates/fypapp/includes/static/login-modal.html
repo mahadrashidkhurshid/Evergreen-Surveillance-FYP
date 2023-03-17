@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button" data-toggle="dropdown"> <div class="flex items-center space-x-4">
+        <div class=" dark:text-black">
+            <div>{{request.user}}</div>
+        </div>
+    </div></a>
+        <a class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 transition ease-in-out delay-150 bg-green-500 hover:-translate-y-1 hover:scale-110 hover:bg-green-500 duration-300" href="/logout" >Logout</a>
+    {% else %}
+    <!-- LOGIN -->
+    <!--Modal toggle -->
+    <button class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 transition ease-in-out delay-150 bg-green-500 hover:-translate-y-1 hover:scale-110 hover:bg-green-500 duration-300" type="button" data-modal-toggle="authentication-modal">
+        Login 
+        </button>
+    
+        <!-- Main modal  -->
+        <div id="authentication-modal" aria-hidden="true" class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+            <div class="relative w-full max-w-md px-4 h-full md:h-auto">
+                 <!-- Modal content  -->
+                <div class="bg-white rounded-lg shadow relative dark:bg-green-500 opacity-90">
+                    <div class="flex justify-end p-2">
+                        <button type="button" class="text-white-400 bg-transparent hover:bg-white-200 hover:text-white-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-white-800 dark:hover:text-white" data-modal-toggle="authentication-modal">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                        </button>
+                    </div>
+                    <form class="space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8" action="login" method="POST">
+                      {% csrf_token %}
+                        <h3 class="text-xl font-medium text-white-900 dark:text-white">Sign in to our platform</h3>
+                        <br>
+                        <div>
+                            <label for="email" class="text-sm font-medium text-white-900 dark:text-white">Username</label>
+                            <input type="text" name="lusername" id="lusername" class="bg-white-50 border border-white-300 text-white-900 sm:text-sm rounded-lg focus:ring-white-500 focus:border-white-500 block w-full p-2.5 dark:bg-white-600 dark:border-white-500 dark:placeholder-white-400 dark:text-gray" placeholder="Username" required="username">
+                        </div>
+                        <br>
+                        <div>
+                            <label for="password" class="text-sm font-medium text-white-900 dark:text-white">Your password</label>
+                            <input type="password" name="lpassword" id="lpassword" placeholder="••••••••" class="bg-white-50 border border-white-300 text-gray-900 sm:text-sm rounded-lg focus:ring-white-500 focus:border-white-500 block w-full p-2.5 dark:bg-white-600 dark:border-white-500 dark:placeholder-white-400 dark:text-gray" required="password">
+                        </div>
+                        <br>
+                        <button type="submit" class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Login to your account</button>
+                        <div class="text-sm font-medium text-white dark:text-white">
+                            Not registered? 
+                            <a href="{% url 'signup' %}" class="text-white-700 hover:underline dark:text-white-100">Create account</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> 
+    </div></div> </a>
+  <a href="{% url 'signup' %}" class="py-2 px-3 font-medium hover:bg-gray-100 rounded shadow-sm transition duration-300 "><div class="">Signup</div> </a>
+</div> 
+
+<!-- -mobile button goes here -->
+<div class="md:hidden flex items-center">
+  <button class="mobile-menu-button">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </svg>
+  </button>
+
+</div> 
+
+</div>
+<!--mobile menu-->
+<div class="mobile-menu hidden md:hidden">
+<a href="" class="block py-2 px-4 text-sm hover:bg-gray-200">Home</a>
+<a href="" class="block py-2 px-4 text-sm hover:bg-gray-200">Blog</a>
+<a href="" class="block py-2 px-4 text-sm hover:bg-gray-200">Contact</a>
+</div>
+</div>
+</div>
+
+<!-- LOGIN-END -->
+
+ 
+</body>
+</html>
+
+{% endif %}

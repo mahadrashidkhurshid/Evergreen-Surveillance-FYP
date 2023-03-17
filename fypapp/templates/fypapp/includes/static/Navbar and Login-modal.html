@@ -1,0 +1,55 @@
+{% load static %}
+{% load tailwind_tags %}
+{% tailwind_css %}
+{% block loginModal %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-modal</title>
+</head>
+<body>
+    <!--Navbar-->
+  <nav class="bg-gray-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between">
+        
+
+          <!--primary nav-->
+          <div class="hidden md:flex items-center space-x-1">
+            <a href="{% url 'index' %}" class="text-lg py-4 px-3 font-medium text-gray-700 hover:underline ">Home</a>
+            <a href="{% url 'blog' %}" class="text-lg py-4 px-3 font-medium text-gray-700 hover:underline ">Blog</a>
+            <a href="{% url 'contact' %}" class="text-lg py-4 px-3 font-medium text-gray-700 hover:underline ">Contact</a>
+          </div>
+
+          <!--logo-->
+          <div class="">
+            <a href="{% url 'index' %}" class="flex items-center py-4 px-2 ">
+              <!-- <div><img class="w-6 h-6 py-3 bg-contain " src="static\images\logo.svg" alt=""></div> -->
+              <svg class="h-8 w-8 mr-1 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+              <!--<img src="{% static 'logo.png' %}" alt="Mon image" />-->
+              <span class="text-lg font-bold text-gray-700 drop-shadow-lg px-1">Evergreen Surveillance</span>
+            </a>
+          
+         
+        </div>
+        <!--secondary nav-->
+        <div class="hidden md:flex items-center space-x-3">
+          <a href="#"><div><!-- This is an example component -->
+            <div class="max-w-2xl mx-auto">
+             
+              {% include 'fypapp\includes\static\login-modal.html' %}
+  </nav>
+
+
+</div>
+    
+</body>
+</html>
+
+{% endblock %}

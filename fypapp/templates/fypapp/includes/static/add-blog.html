@@ -1,0 +1,45 @@
+{% load static %}
+{% load tailwind_tags %}
+{% tailwind_css %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+</head>
+<body>
+    
+    {% block blogform %}
+    <!-- Blog section -->
+    
+    <form action="/blogs/" method="post">
+        {% csrf_token %}
+        <label for="author name">Author Name:</label>
+        <input type="text" name="b_author_name"><br><br>
+    
+        <label for="title">Title:</label>
+        <input type="text" name="b_title"><br><br>
+    
+        <label for="tags">Tags:</label>
+        <input type="text" name="b_tags"><br><br>
+    
+        <label for="photo`">Photo:</label>
+        <input type="file" name="b_photo"><br><br>
+    
+        <label for="blogPost">Blog Post:</label>
+        <textarea name="b_blog" cols="30" rows="10"></textarea><br><br>
+    
+        <label for="publishedDate">Published Date:</label>
+        <input type="date" name="b_date"><br><br>
+    
+        <input type="submit" value="Submit">
+    </form>
+    
+    {% endblock %}
+    <!-- Blog section end -->
+
+</body>
+</html>
